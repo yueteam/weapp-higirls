@@ -1,0 +1,68 @@
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.clearfix:after {
+    clear: both;
+}
+.city-list .hot-title {
+	padding: 20px 15px 10px;
+	color: #666;
+	font-size: 12px;
+}
+.city-list .hot-city {
+	padding: 0 15px;
+}
+.city-list .hot-city .hot-city-item {
+	float: left;
+	margin: 0 18rpx 18rpx 0;
+	width: 200rpx;
+	height: 66rpx;
+	line-height: 64rpx;
+	text-align: center;
+	color: #333;
+	font-size: 14px;
+	background: #fff;
+	border: 1rpx solid #ddd;
+ 	border-radius: 2px;
+ 	box-sizing: border-box;
+}
+.city-floor {
+	background: #fff;
+}
+.city-floor .title {
+	padding-left: 15px;
+	height: 28px;
+	line-height: 28px;
+	color: #666;
+	font-size: 12px;
+	background: #FAFAFA;
+	border-top: 1rpx solid #ddd;
+	border-bottom: 1rpx solid #ddd;
+}
+.city-floor .city-item {
+	margin-left: 15px;
+	height: 44px;
+	line-height: 44px;
+	font-size: 16px;
+	border-bottom: 1rpx solid #ddd;
+}
+.city-floor .city-item:last-child {
+	border: none;
+}
+
+.floor-link {
+	position: fixed;
+	z-index: 99;
+	top: 36px;
+	right: 0;
+	width: 30px;
+	text-align: center;
+}
+.floor-link .link-item {
+	padding: 4px 0;
+	font-size: 20rpx;
+	font-weight: bold;
+	color: #0f88eb;
+}

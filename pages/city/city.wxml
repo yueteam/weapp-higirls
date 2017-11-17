@@ -1,0 +1,27 @@
+<!--settings.wxml-->
+<view class="container">	
+    <view class="city-list">
+       	<view id="hot">
+    		<view class="hot-title">热门城市</view>
+	    	<view class="hot-city clearfix">
+	    		<view wx:for="{{hotCityList}}" class="hot-city-item" data-id="{{item.id}}" data-uid="{{item.uid}}" data-name="{{item.name}}" bindtap="chooseCity">
+	        		{{ item.name }}
+	        	</view>
+	    	</view>
+	    </view>
+    	<block wx:for="{{initial}}">
+    		<view wx:if="{{cityList[item]}}" class="city-floor" id="{{item}}">
+	        	<view class="title">{{ item }}</view>
+	        	<view wx:for="{{cityList[item]}}" wx:for-item="citem" class="city-item" data-id="{{citem.id}}" data-uid="{{citem.uid}}" data-name="{{citem.name}}" bindtap="chooseCity">
+	        		{{ citem.name }}
+	        	</view>
+	        </view>
+        </block>
+       	<view class="floor-link">
+       		<view class="link-item" data-letter="hot" bindtap="scrollTo">热门</view>
+	    	<view wx:for="{{initial}}" class="link-item" data-letter="{{item}}" bindtap="scrollTo">
+	    	{{ item }}
+	    	</view>
+	    </view>
+    </view>
+</view>

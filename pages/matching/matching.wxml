@@ -1,0 +1,104 @@
+<!--settings.wxml-->
+<view class="container">	
+    <view class="nodata" wx:if="{{status==='nodate'}}">
+        <image class="icon" src="../../images/heartbroken.png"></image>
+        <view class="text">还没约人~</view>
+    </view>
+
+    <view class="matching" wx:if="{{status==='matching'}}">
+        <view wx:if="{{hasDate}}" class="date-info">
+            <view class="film-title">{{ dateInfo.filmName }}</view>
+            <view class="when">时间：{{ dateInfo.day }} {{ dateInfo.time }}</view>
+            <view class="where">地点：{{ dateInfo.cityName }}
+                <text wx:if="{{dateInfo.districtId!=='all'}}">·{{ dateInfo.districtName }}</text>
+                <text wx:if="{{dateInfo.cinemaId!==''}}">·{{ dateInfo.cinemaName }}</text>
+            </view>
+            <view wx:if="{{dateInfo.cinemaId!==''}}" class="address">详细地址：{{ dateInfo.cinemaAddress }}</view>
+            <view>{{ dateInfo.words }}</view>
+        </view>
+        <view class="circle-wrapper">
+            <view class="circle">约吗</view>
+            <view class="wave"></view>
+        </view>
+    </view>
+
+    <view class="matched" wx:if="{{status==='matched'}}">
+        <view wx:if="{{!matchEnd}}" class="match-box">
+            <image src="{{matchList[matchIndex].avatarUrl+'?x-oss-process=image/resize,w_600,h_600,m_fill/auto-orient,0/quality,q_90/format,jpg'}}" class="avatar" mode="aspectFill"></image>
+            <view class="info">
+                <view class="nick">{{ matchList[matchIndex].nickName }}</view>
+                <view class="info-tag clearfix">
+                    <view class="gender item {{matchList[matchIndex].gender==1?'male':''}}">{{ matchList[matchIndex].gender==1?'♂':'♀' }}</view>
+                    <view class="age item">{{ matchList[matchIndex].age }}</view>
+                    <view class="constellation item">{{ matchList[matchIndex].constellation }}</view>
+                </view>
+                <view class="career">{{ matchList[matchIndex].business }}<text wx:if="{{matchList[matchIndex].company}}">·{{ matchList[matchIndex].company }}</text><text wx:if="{{matchList[matchIndex].profession}}">·{{ matchList[matchIndex].profession }}</text>
+                </view>
+                <view class="words">{{ matchList[matchIndex].words }}</view>
+            </view>
+        </view>
+        <view class="match-box rotate-box {{rotateCls}}">
+            <image src="{{matchList[preIndex].avatarUrl+'?x-oss-process=image/resize,w_600,h_600,m_fill/auto-orient,0/quality,q_90/format,jpg'}}" class="avatar" mode="aspectFill"></image>
+            <view class="info">
+                <view class="nick">{{ matchList[preIndex].nickName }}</view>
+                <view class="info-tag clearfix">
+                    <view class="gender item {{matchList[preIndex].gender==1?'male':''}}">{{ matchList[preIndex].gender==1?'♂':'♀' }}</view>
+                    <view class="age item">{{ matchList[preIndex].age }}</view>
+                    <view class="constellation item">{{ matchList[preIndex].constellation }}</view>
+                </view>
+                <view class="career">{{ matchList[preIndex].business }}<text wx:if="{{matchList[preIndex].company}}">·{{ matchList[preIndex].company }}</text><text wx:if="{{matchList[preIndex].profession}}">·{{ matchList[preIndex].profession }}</text>
+                </view>
+                <view class="words">{{ matchList[preIndex].words }}</view>
+            </view>
+        </view>
+        <view class="match-act">
+            <view class="act-item">
+                <view class="act-btn no">
+                    <image class="act-ico" src="../../images/no.png"></image>
+                </view>
+                <view class="cover" data-act="no" bindtap="decide"></view>
+            </view>
+            <view class="act-item">
+                <view class="act-btn yes">
+                    <image class="act-ico" src="../../images/love.png"></image>
+                </view>
+                <view class="cover" data-act="yes" bindtap="decide"></view>
+            </view>
+        </view>
+    </view>
+
+    <view class="unmatched" wx:if="{{status==='unmatched'}}">
+        <view wx:if="{{hasDate}}" class="date-info">
+            <view class="film-title">{{ dateInfo.filmName }}</view>
+            <view class="when">时间：{{ dateInfo.day }} {{ dateInfo.time }}</view>
+            <view class="where">地点：{{ dateInfo.cityName }}
+                <text wx:if="{{dateInfo.districtId!=='all'}}">·{{ dateInfo.districtName }}</text>
+                <text wx:if="{{dateInfo.cinemaId!==''}}">·{{ dateInfo.cinemaName }}</text>
+            </view>
+            <view wx:if="{{dateInfo.cinemaId!==''}}" class="address">详细地址：{{ dateInfo.cinemaAddress }}</view>
+            <view>{{ dateInfo.words }}</view>
+        </view>
+        <view class="nomatch">
+            <image class="icon" src="../../images/heartbroken.png"></image>
+            <view class="text">竟然没约到！</view>
+            <view class="broadcast" bindtap="goOn">继续约</view>
+        </view>
+    </view>
+
+    <view class="succeed-layer" wx:if="{{status==='succeed'}}">
+        <view class="succeed-panel">
+            <view class="succeed-title">
+                恭喜匹配成功！
+            </view>
+            <block wx:for="{{succeedList}}">
+                <view class="succeed-info">
+                    <image src="{{item.avatars[0]+'?x-oss-process=image/resize,w_200,h_200,m_fill/auto-orient,0/quality,q_90/format,jpg'}}" class="pair-avatar" mode="aspectFill" data-uid="{{item.userIds[0]}}" bindtap="goUserPage"></image>
+                    <image src="{{item.avatars[1]+'?x-oss-process=image/resize,w_200,h_200,m_fill/auto-orient,0/quality,q_90/format,jpg'}}" class="pair-avatar" mode="aspectFill" data-uid="{{item.userIds[1]}}" bindtap="goUserPage"></image>
+                </view>
+                <view class="succeed-act" data-id="{{item._id}}" bindtap="goDetail">
+                    去约定细节
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

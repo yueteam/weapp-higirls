@@ -1,0 +1,85 @@
+<!--settings.wxml-->
+<view class="container">	
+    <view wx:if="{{infoReady}}" class="photos clearfix">
+    	<view class="avatar-wrapper">
+        	<image class="avatar" src="{{avatarUrl?avatarUrl:'../../images/addphoto.png'}}" mode="aspectFill" data-index="avatarUrl" bindtap="uploadPic"></image>
+        </view>
+    	<view class="album">
+        	<image class="photo" src="{{photo1?photo1+'?x-oss-process=image/resize,w_200,h_200,m_fill/auto-orient,0/quality,q_90/format,jpg':'../../images/addphoto.png'}}" mode="aspectFill" data-index="photo1" bindtap="uploadPic"></image>
+        	<image class="photo" src="{{photo2?photo2+'?x-oss-process=image/resize,w_200,h_200,m_fill/auto-orient,0/quality,q_90/format,jpg':'../../images/addphoto.png'}}" mode="aspectFill" data-index="photo2" bindtap="uploadPic"></image>
+        	<image class="photo" src="{{photo3?photo3+'?x-oss-process=image/resize,w_200,h_200,m_fill/auto-orient,0/quality,q_90/format,jpg':'../../images/addphoto.png'}}" mode="aspectFill" data-index="photo3" bindtap="uploadPic"></image>
+        	<image class="photo" src="{{photo4?photo4+'?x-oss-process=image/resize,w_200,h_200,m_fill/auto-orient,0/quality,q_90/format,jpg':'../../images/addphoto.png'}}" mode="aspectFill" data-index="photo4" bindtap="uploadPic"></image>
+        </view>
+    </view>
+    <view class="tags">
+
+    </view>
+    <view class="settings">
+	    <form bindsubmit="submitForm">
+	    	<view class="title">基本信息</view>
+	    	<view class="mod">
+		    	<view class="field">
+		    		<view class="cell-label">昵称</view>
+		    		<view class="cell-value">
+		    			<input name="nick" maxlength="20" value="{{nickName}}" />
+		    		</view>
+		    	</view>
+		    	<view class="field">
+		    		<view class="cell-label">性别</view>
+		    		<view class="cell-value">
+			            <picker mode="selector" bindchange="bindGenderChange" range-key="text" value="{{index}}" range="{{genderList}}" disabled="{{gender==0?false:true}}">
+			                <view class="picker">
+			                    <text wx:if="{{gender!=0}}">{{ gender==1?'男':'女' }}</text>
+			                    <text wx:else class="gray">选择性别</text>
+			                </view>
+			            </picker>
+			        </view>
+		        </view>
+		    	<view class="field">
+		    		<view class="cell-label">生日</view>
+		    		<view class="cell-value">
+			            <picker mode="date" bindchange="bindBirthdayChange" value="{{birthday}}" start="" end="2001-01-01">
+			                <view class="picker">
+			                    <text wx:if="{{birthday}}">{{ birthday }}</text>
+			                	<text wx:else class="gray">选择生日</text>
+			                </view>
+			            </picker>
+			        </view>
+		        </view>
+		    	<view class="field">
+		    		<view class="cell-label">个性签名</view>
+		    		<view class="cell-value">
+		    			<input name="personality" maxlength="50" value="{{personality}}" placeholder="添加个性签名" placeholder-class="gray" />
+		    		</view>
+		    	</view>
+		    </view>
+		    <view class="title">职业信息</view>
+	    	<view class="mod">
+		    	<view class="field">
+		    		<view class="cell-label">行业</view>
+		    		<view class="cell-value">
+		    			<picker mode="selector" bindchange="bindBusinessChange" value="{{index}}" range="{{businessList}}">
+			                <view class="picker">
+			                	<text wx:if="{{business}}">{{ business }}</text>
+			                	<text wx:else class="gray">添加行业信息</text>
+			                </view>
+			            </picker>
+		    		</view>
+		    	</view>
+		    	<view class="field">
+		    		<view class="cell-label">公司</view>
+		    		<view class="cell-value">
+		    			<input name="company" maxlength="20" value="{{company}}" placeholder="添加公司信息" placeholder-class="gray" />
+		    		</view>
+		    	</view>
+		    	<view class="field">
+		    		<view class="cell-label">职业</view>
+		    		<view class="cell-value">
+		    			<input name="profession" maxlength="20" value="{{profession}}" placeholder="添加职业信息" placeholder-class="gray" />
+		    		</view>
+		    	</view>
+		    </view>
+		    <button loading="{{isSubmit}}" disabled="{{isSubmit}}" class="btn-submit" type="primary" form-type="submit">保存</button>
+	    </form>
+    </view>
+</view>

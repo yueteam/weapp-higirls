@@ -1,0 +1,40 @@
+<!--user.wxml-->
+<view class="container">
+	<view wx:if="{{userInfo.avatars}}">	
+	    <view class="slider">
+	        <swiper indicator-dots="true" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#ffffff">
+			    <block wx:for="{{userInfo.avatars}}">
+				    <swiper-item>
+				    	<image src="{{item+'?x-oss-process=image/resize,w_600,h_600,m_fill/auto-orient,0/quality,q_90/format,jpg'}}" class="slide-image" mode="aspectFill"></image>
+				    </swiper-item>
+			    </block>
+			</swiper>
+	    </view>
+	    <view class="profile-info">
+		    <view class="nickname">{{ userInfo.nickName }}</view>
+		    <view class="info-tag clearfix">
+		    	<view class="gender item {{userInfo.gender==1?'male':''}}">{{ userInfo.gender==1?'♂':'♀' }}</view>
+		    	<view wx:if="{{userInfo.age}}" class="age item">{{ userInfo.age }}</view>
+		    	<view wx:if="{{userInfo.constellation}}" class="constellation item">{{ userInfo.constellation }}</view>
+		    </view>
+		    <view wx:if="{{userInfo.personality}}" class="personality">{{ userInfo.personality }}</view> 
+	    </view>
+	    <view class="career-info">
+		    <view class="title">职业信息</view>
+	    	<view class="career">
+		    	<view class="field">
+		    		<view class="cell-label">行业</view>
+		    		<view class="cell-value">{{ userInfo.business || '未填写' }}</view>
+		    	</view>
+		    	<view class="field">
+		    		<view class="cell-label">公司</view>
+		    		<view class="cell-value">{{ userInfo.company || '未填写' }}</view>
+		    	</view>
+		    	<view class="field">
+		    		<view class="cell-label">职业</view>
+		    		<view class="cell-value">{{ userInfo.profession || '未填写' }}</view>
+		    	</view>
+		    </view>
+		</view>
+	</view>
+</view>

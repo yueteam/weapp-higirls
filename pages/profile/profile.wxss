@@ -1,0 +1,93 @@
+/**profile.wxss**/
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.clearfix:after {
+    clear: both;
+}
+.slider, swiper {
+	height: 750rpx;
+	overflow: hidden;
+}
+.slider .slide-image {
+	width: 750rpx;
+	height: 750rpx;
+}
+.profile-info {
+	position: relative;
+	padding: 10px 15px;
+	background-color: #fff;
+}
+.profile-info .nickname {
+	font-size: 20px;
+}
+.profile-info .info-tag {
+	margin-top: 3px;
+}
+.profile-info .info-tag .item {
+	float: left;
+	margin-right: 5px;
+	width: 50px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	background: #FF8791;
+	border-radius: 2px;
+}
+.profile-info .info-tag .age {
+	width: 30px;
+}
+.profile-info .info-tag .gender {
+	width: 20px;
+	border-radius: 50%;
+}
+.profile-info .info-tag .male, .profile-info .info-tag .constellation {
+	background: #61c8d1;
+}
+.profile-info .personality {
+	margin-top: 5px;
+	font-size: 14px;
+	color: #8a8f9c;	
+}
+.profile-info .edit {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	font-size: 14px;
+	color: #0f88eb;
+}
+.career-info {
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+.career-info .title {
+	padding: 20px 15px 7px;
+	color: #999;
+}
+.career-info .career {
+	padding-left: 15px;
+	background: #fff;
+	border-top: 1px solid #f2f2f2;
+	border-bottom: 1px solid #f2f2f2;
+}
+.career-info .field {
+	display: flex;
+	align-items: center;
+	height: 44px;
+	border-bottom: 1px solid #f2f2f2;
+}
+.career-info .field:last-child {
+	border-bottom: 0;
+}
+.career-info .field .cell-label {
+	width: 90px;
+	color: #8a8f9c;
+}
+.career-info .field .cell-value {
+	flex: 1;
+	display: flex;
+}

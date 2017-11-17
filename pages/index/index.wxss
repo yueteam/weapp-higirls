@@ -1,0 +1,246 @@
+/**index.wxss**/
+.city-bar {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	position: fixed;
+	z-index: 99;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+	background-color: #FF8791;
+	box-shadow: 2px 2px 3px #ccc;
+}
+.city-bar .location {
+	margin-right: 5px;
+	width: 16px;
+	height: 16px;
+}
+.nowplaying {
+	position: absolute;
+	top: 86px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.nowplaying-title {
+	margin-top: 45px;
+	padding: 0 30rpx;
+	height: 41px;
+	line-height: 41px;
+	font-size: 15px;
+	font-weight: bold;
+}
+.nowplaying .film-wrapper {
+	padding-left: 30rpx;
+}
+.nowplaying .film {
+	float: left;
+    margin: 0 30rpx 40rpx 0;
+    width: 210rpx;
+    overflow: hidden;
+    position: relative;
+}
+.nowplaying .film .pic {
+	width: 210rpx;
+	height: 294rpx;
+}
+.nowplaying .film .name {
+	display: block;
+	font-size: 14px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.nowplaying .film .score {
+	margin-bottom: 5px;
+	font-size: 12px;
+	color: #e09015;
+}
+.nowplaying .btn-yue {
+	display: block;
+	width: 100%;
+	height: 60rpx;
+	line-height: 60rpx;
+	color: #fff;
+	font-size: 12px;
+	background-color: #FF404F;
+}
+.nowplaying .btn-yue:after {
+	display: none;
+}
+
+.editing {
+	margin-top: 40px;
+}
+.editing .film-info {
+	padding: 10px 10px 10px 135px;
+	position: relative;
+	background: #fff;
+	border-bottom: 1px solid #f2f2f2;
+}
+.editing .film-info .pic {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 115px;
+	height: 160px;
+}
+.editing .film-info .summary {
+	position: relative;
+	height: 160px;
+	color: #8a8f9c;
+	font-size: 13px;
+	line-height: 1.6;
+}
+.editing .film-info .summary .title {
+	padding: 2px 0 5px;
+	color: #373d48;
+	font-size: 16px;
+	font-weight: bold;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.editing .film-info .summary .actors {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.editing .film-info .summary .score-box {	
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.editing .film-info .summary .score {
+    width: 60px;
+	height: 30px;
+	line-height: 30px;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+    background: #61c8d1;
+ 	border-radius: 4px 4px 0 0;
+}
+.editing .film-info .summary .bydb {	
+	margin-top: 1px;
+	width: 60px;
+	height: 20px;
+	line-height: 20px;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+    background: #61c8d1;
+ 	border-radius: 0 0 4px 4px;
+}
+.editing .statistics {
+	margin: 15px 15px 5px;
+	padding: 15px 10px;
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+ 	border-radius: 3px;
+ 	-webkit-backface-visibility: hidden;
+ 	backface-visibility: hidden;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+ 	animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    -webkit-box-shadow: 0 1px 0px 0px rgba(208, 209, 213, 0.5), 0 0px 0px 1px rgba(220, 221, 224, 0.4);
+    box-shadow: 0 1px 0px 0px rgba(208, 209, 213, 0.5), 0 0px 0px 1px rgba(220, 221, 224, 0.4);
+}
+.editing .statistics .time-info {
+	
+}
+.editing .statistics .count {
+	color: #FF404F;
+	font-size: 20px;
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+}
+.editing .picker-title {
+	padding: 10px 15px 6px;
+	color: #999;
+	font-size: 13px;
+}
+.editing .picker-title .required {
+	color: #FF404F;
+}
+.editing .picker {
+    padding: 0 15px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	background: #fff;
+	border-top: 1px solid #f2f2f2;
+	border-bottom: 1px solid #f2f2f2;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.editing .text-area {
+	padding: 0 10px;
+	width: 100%;
+	height: 100px;
+	font-size: 14px;
+	line-height: 1.4;
+	background: #fff;
+	border-top: 1px solid #f2f2f2;
+	border-bottom: 1px solid #f2f2f2;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.editing .submit {
+	padding: 15px 0;
+}
+.editing .submit .btn-submit {
+	margin: 15px 15px 0;
+	background-color: #FF404F;
+}
+@-webkit-keyframes bounceIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(.3);
+	}
+	
+	50% {
+		opacity: 1;
+		-webkit-transform: scale(1.05);
+	}
+	
+	70% {
+		-webkit-transform: scale(.9);
+	}
+	
+	100% {
+		-webkit-transform: scale(1);
+	}
+}
+@keyframes bounceIn {
+	0% {
+		opacity: 0;
+		transform: scale(.3);
+	}
+	
+	50% {
+		opacity: 1;
+		transform: scale(1.05);
+	}
+	
+	70% {
+		transform: scale(.9);
+	}
+	
+	100% {
+		transform: scale(1);
+	}
+}
+.bounceIn {
+	-webkit-animation-name: bounceIn;
+	animation-name: bounceIn;
+}	

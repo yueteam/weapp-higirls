@@ -1,0 +1,19 @@
+/**app.wxss**/
+page {	
+	color: #373d48;
+    background-color: #F5F5F5;
+}
+.container {
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+} 
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.clearfix:after {
+    clear: both;
+}

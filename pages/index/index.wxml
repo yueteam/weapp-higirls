@@ -1,0 +1,78 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="city-bar" bindtap="switchCity">
+        <image class="location" src="../../images/location.png"></image>
+        {{ cityInfo.name }}
+    </view>
+
+    <view wx:if="{{status==='nowplaying'}}" class="nowplaying-title">
+        <text>正在上映</text>
+    </view>
+    <scroll-view scroll-y="true" wx:if="{{status==='nowplaying'}}" class="nowplaying">
+        <view class="film-wrapper">
+            <view class="film" wx:for="{{filmList}}" wx:for-item="item" wx:for-index="itemIdx">
+                <image class="pic" src="{{item.img}}" mode="aspectFit"></image>
+                <text class="name">{{ item.title }}</text>
+                <view wx:if="{{item.rate == 0}}" class="score">暂无评分</view>
+                <view wx:else class="score">豆瓣评分：{{ item.rate }}</view>
+                <button class="btn-yue" type="default" bindtap="yue" data-filminfo="{{item}}">约人</button>
+            </view>
+        </view>
+    </scroll-view>
+
+    <view wx:if="{{status==='editing'}}" class="editing">
+        <view class="film-info">
+            <image class="pic" src="{{filmInfo.img}}" mode="aspectFit"></image>
+            <view class="summary">
+                <view class="title">{{ filmInfo.title }}</view>
+                <view class="director">导演：{{ filmInfo.director }}</view>
+                <view class="actors">主演：{{ filmInfo.actors }}</view>
+                <view class="duration">时长：{{ filmInfo.duration }}</view>
+                <view class="score-box">
+                   <view class="score">{{ filmInfo.rate==0?'暂无':filmInfo.rate }}</view>
+                   <view class="bydb">豆瓣评分</view>
+                </view>
+            </view>
+        </view>
+        <!--<view class="statistics bounceIn">
+            <view class="time-info">
+                {{ timeStr }}
+            </view>
+            <view>
+                <text wx:if="{{cinemaInfo.id!==''}}">该影院</text>
+                <text wx:else>{{ cityInfo.name }}<text wx:if="{{districtId!=='all'}}">，{{ districtName }}</text></text>有 
+                <text class="count">989</text> 个女生可约
+            </view>
+        </view>-->
+        <view class="when">
+            <view class="picker-title"><text class="required">*</text> 约个时间</view>
+            <picker mode="multiSelector" bindchange="bindTimeChange" bindcolumnchange="bindTimeColChange" range="{{whenList}}">
+                <view class="picker">
+                    {{ timeStr?timeStr:'何时' }}
+                </view>
+            </picker>
+        </view>
+        <view class="district">
+            <view class="picker-title">选择区域（选择后匹配的人群更小）</view>
+            <picker mode="selector" bindchange="bindDistrictChange" range-key="name" value="{{index}}" range="{{districtList}}">
+                <view class="picker">
+                    {{ districtName }}
+                </view>
+            </picker>
+        </view>
+        <view class="cinema">
+            <view class="picker-title">指定电影院（建议在已买票情况下选择）</view>
+            <picker mode="selector" bindchange="bindCinemaChange" range-key="name" value="{{index}}" range="{{cinemaList}}">
+                <view class="picker">
+                    {{ cinemaInfo.name }}
+                </view>
+            </picker>
+        </view>
+        <view class="submit">
+            <form bindsubmit="submit">
+                <textarea name="textarea" class="text-area" maxlength="100" placeholder="说点什么增加约会几率，如：票与爆米花已备好" placeholder-style="font-size: 14px;" />
+                <button loading="{{isSubmit}}" disabled="{{isSubmit}}" class="btn-submit" type="primary" form-type="submit">发布</button>
+            </form>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,49 @@
+{
+    "pages" : [
+        "pages/index/index",
+        "pages/city/city",
+        "pages/matching/matching",
+        "pages/profile/profile",
+        "pages/settings/settings",
+        "pages/user/user"
+    ],
+    "window" : {
+        "backgroundTextStyle":"light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "约吗？",
+        "navigationBarTextStyle":"black",
+        "windowBackground": "#efeff4"
+    },
+    "tabBar" : {
+        "color" : "#8a8a8a",
+        "selectedColor" : "#FF404F",
+        "borderStyle" : "black",
+        "backgroundColor" : "#fefefe",
+        "list" : [
+            {
+                "text" : "看电影",
+                "pagePath" : "pages/index/index",
+                "iconPath" : "images/tabBar/tabbar_film_normal.png",
+                "selectedIconPath" : "images/tabBar/tabbar_film_selected.png"
+            },
+            {
+                "text" : "匹配",
+                "pagePath" : "pages/matching/matching",
+                "iconPath" : "images/tabBar/tabbar_radar_normal.png",
+                "selectedIconPath" : "images/tabBar/tabbar_radar_selected.png"
+            },
+            {
+                "text" : "我",
+                "pagePath" : "pages/profile/profile",
+                "iconPath" : "images/tabBar/tabbar_me_normal.png",
+                "selectedIconPath" : "images/tabBar/tabbar_me_selected.png"
+            }
+        ]
+    },
+    "networkTimeout" : {
+        "request" : 12000,
+        "downloadFile": 10000
+    },
+    "debug" : false
+}
+
